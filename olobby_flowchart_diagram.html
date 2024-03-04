@@ -1,0 +1,157 @@
+To create Mermaid.js flowcharts for each use case and embed them in an HTML file, we will first write the Mermaid.js code for each use case and then place them within the HTML structure. Below is the HTML code with embedded Mermaid.js flowcharts for each use case:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Use Case Flowcharts</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+</head>
+<body>
+
+<h2>Task Creation and Assignment Use Case</h2>
+<div class="mermaid">
+graph TD
+    A[Start] --> B{Login with credentials}
+    B -- Valid --> C[Allow login]
+    B -- Invalid --> D[Display 'invalid login']
+    C --> E{Check if dashboard is default screen}
+    E -- Yes --> F[Navigate to Task Management]
+    E -- No --> G[Display 'did not meet expected result']
+    F --> H{Check if Task Management is visible}
+    H -- Yes --> I[Click 'Create Task']
+    H -- No --> J[Display 'Task Management section is not visible']
+    I --> K{Check if 'Create Task' form is visible}
+    K -- Yes --> L[Enter task details and assign]
+    K -- No --> M[Display 'form is not displayed']
+    L --> N{Click 'Save'}
+    N -- Success --> O[Validate task creation and assignment]
+    N -- Fail --> P[Display 'task creation failed']
+    O --> Q{Check if notification is sent}
+    Q -- Yes --> R[End]
+    Q -- No --> S[Display 'notification not sent']
+</div>
+
+<h2>Document Management and Collaboration Use Case</h2>
+<div class="mermaid">
+graph TD
+    A[Start] --> B{Login with credentials}
+    B -- Valid --> C[Allow login]
+    B -- Invalid --> D[Display 'invalid login']
+    C --> E{Check if dashboard is default screen}
+    E -- Yes --> F[Move to Document Management]
+    E -- No --> G[Display 'did not meet expected result']
+    F --> H{Check if Document Management is visible}
+    H -- Yes --> I[Click 'Upload Document']
+    H -- No --> J[Display 'Document Management section is not visible']
+    I --> K{Check if upload interface is visible}
+    K -- Yes --> L[Select document to upload]
+    K -- No --> M[Display 'upload interface is not displayed']
+    L --> N{Click 'Upload'}
+    N -- Success --> O[Validate document upload]
+    N -- Fail --> P[Display 'document upload failed']
+    O --> Q{Share and verify access and edit}
+    Q -- Success --> R[End]
+    Q -- Fail --> S[Display 'sharing or editing failed']
+</div>
+
+<h2>Workflow System Use Case</h2>
+<div class="mermaid">
+graph TD
+    A[Start] --> B{Login with credentials}
+    B -- Valid --> C[Allow login]
+    B -- Invalid --> D[Display 'invalid login']
+    C --> E{Check if dashboard is default screen}
+    E -- Yes --> F[Navigate to Workflow system]
+    E -- No --> G[Display 'did not meet expected result']
+    F --> H{Check if Workflow system is visible}
+    H -- Yes --> I[Click 'Create Workflow']
+    H -- No --> J[Display 'Workflow system is not visible']
+    I --> K{Check if 'Create Workflow' interface is visible}
+    K -- Yes --> L[Design workflow with steps and conditions]
+    K -- No --> M[Display 'interface is not displayed']
+    L --> N{Click 'Save'}
+    N -- Success --> O[Validate workflow creation]
+    N -- Fail --> P[Display 'workflow creation failed']
+    O --> Q{Initiate test run}
+    Q -- Success --> R[End]
+    Q -- Fail --> S[Display 'workflow test failed']
+</div>
+
+<h2>Quick Notes Use Case</h2>
+<div class="mermaid">
+graph TD
+    A[Start] --> B{Login with credentials}
+    B -- Valid --> C[Allow login]
+    B -- Invalid --> D[Display 'invalid login']
+    C --> E{Check if dashboard is default screen}
+    E -- Yes --> F[Access Quick Notes feature]
+    E -- No --> G[Display 'did not meet expected result']
+    F --> H{Check if Quick Notes is accessible}
+    H -- Yes --> I[Click 'Create Note']
+    H -- No --> J[Display 'Quick Notes feature is not accessible']
+    I --> K{Check if note creation interface is visible}
+    K -- Yes --> L[Enter note content]
+    K -- No --> M[Display 'note creation interface is not displayed']
+    L --> N{Click 'Save'}
+    N -- Success --> O[Validate note saving]
+    N -- Fail --> P[Display 'note saving failed']
+    O --> Q{Verify note is retrievable and editable}
+    Q -- Success --> R[End]
+    Q -- Fail --> S[Display 'note retrieval or editing failed']
+</div>
+
+<h2>Chat and Video Conference Call System Use Case</h2>
+<div class="mermaid">
+graph TD
+    A[Start] --> B{Login with credentials}
+    B -- Valid --> C[Allow login]
+    B -- Invalid --> D[Display 'invalid login']
+    C --> E{Check if dashboard is default screen}
+    E -- Yes --> F[Navigate to Chat system]
+    E -- No --> G[Display 'did not meet expected result']
+    F --> H{Check if Chat system is visible}
+    H -- Yes --> I[Select contact to message or call]
+    H -- No --> J[Display 'Chat system is not visible']
+    I --> K{Check if chat interface is visible}
+    K -- Yes --> L[Send message and verify receipt]
+    K -- No --> M[Display 'chat interface is not displayed']
+    L --> N{Click 'Video Call'}
+    N -- Success --> O[Validate video call start]
+    N -- Fail --> P[Display 'video call failed']
+    O --> Q{Check audio and video quality}
+    Q -- Good --> R[End]
+    Q -- Poor --> S[Display 'audio or video quality is poor']
+</div>
+
+<h2>Share File System Use Case</h2>
+<div class="mermaid">
+graph TD
+    A[Start] --> B{Login with credentials}
+    B -- Valid --> C[Allow login]
+    B -- Invalid --> D[Display 'invalid login']
+    C --> E{Check if dashboard is default screen}
+    E -- Yes --> F[Move to Share File system]
+    E -- No --> G[Display 'did not meet expected result']
+    F --> H{Check if Share File system is visible}
+    H -- Yes --> I[Click 'Share File']
+    H -- No --> J[Display 'Share File system is not visible']
+    I --> K{Check if file selection interface is visible}
+    K -- Yes --> L[Choose file to share]
+    K -- No --> M[Display 'file selection interface is not displayed']
+    L --> N{Enter recipient's details and click 'Share'}
+    N -- Success --> O[Validate file sharing]
+    N -- Fail --> P[Display 'file sharing failed']
+    O --> Q{Verify recipient can access file}
+    Q -- Yes --> R[End]
+    Q -- No --> S[Display 'recipient cannot access the file']
+</div>
+
+</body>
+</html>
+```
+
+This HTML file includes the Mermaid.js library and initializes it to render the flowcharts when the page is loaded. Each use case is represented as a flowchart within a `div` element with the class `mermaid`. When you open this HTML file in a web browser, you should see the flowcharts for each use case displayed on the page.

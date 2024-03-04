@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Entry Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            position: relative;
+            width: 70%;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .logo-section {
+            text-align: center;
+            margin-bottom: 5px;
+            position: relative;
+        }
+
+        .logo {
+            max-width: 90px; /* Adjusted logo size */
+            height: auto;
+            border-radius: 10px; /* Adding rounded corners to the logo */
+            border: 3px solid #007bff; /* Adding a border around the logo */
+            padding: 10px; /* Adding padding to the logo */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow */
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        label {
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+            color: #333;
+        }
+
+        textarea, select, input[type="file"], input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #333;
+            transition: border-color 0.3s ease;
+            margin-bottom: 10px;
+        }
+
+        input[type="file"] {
+            cursor: pointer;
+        }
+
+        button {
+            width: calc(100% - 20px);
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z" /><path d="M0 0h24v24H0z" fill="none" /></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px top 50%;
+            background-size: 20px auto;
+            padding-right: 40px;
+            border-radius: 5px;
+        }
+
+        select::-ms-expand {
+            display: none;
+        }
+
+        input[type="file"]::-webkit-file-upload-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="file"]::-webkit-file-upload-button:hover {
+            background-color: #0056b3;
+        }
+
+        .file-label {
+            display: block;
+            margin-top: 5px;
+        }
+
+        .file-selected {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .file-selected span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="logo-section">
+        <img src="/home/dpatil/Downloads/logo.jpeg" alt="Logo" class="logo">
+    </div>
+
+    <form id="BRD FORM">
+        <div class="form-group">
+            <label for="projectNameInput">Enter Project Name:</label>
+            <input type="text" id="projectNameInput" placeholder="Project Name..." style="height: 20px;">
+                        <label for="projectNameInput">Enter Section Name:</label>
+            <input type="text" id="projectNameInput" placeholder="Section Name..." style="height: 20px;">
+            
+        </div>
+
+        <div class="form-group">
+            <label for="textInput">Enter Content:</label>
+            <textarea id="textInput" rows="4" placeholder="Type here..."></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label class="file-label" for="fileUpload">Upload PDF or DOCX file:</label>
+            <input type="file" id="fileUpload" accept=".pdf,.docx">
+            <div class="file-selected" id="fileSelected"></div>
+        </div>
+        
+        <button type="submit">replace</button>   
+    </form>
+</div>
+
+<script>
+    function removePlaceholder() {
+        var placeholderOption = document.getElementById('placeholderOption');
+        if (placeholderOption) {
+            placeholderOption.remove();
+        }
+    }
+
+    document.getElementById('fileUpload').addEventListener('change', function(e) {
+        const fileName = e.target.files[0].name;
+        document.getElementById('fileSelected').innerHTML = '<span>File Selected:</span> ' + fileName;
+    });
+</script>
+
+</body>
+</html>
+
