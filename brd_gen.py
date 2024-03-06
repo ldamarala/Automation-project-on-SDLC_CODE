@@ -10,7 +10,7 @@ from flask import Flask
 # load_dotenv()
 # openai.api_key_path = os.getenv("OPENAI_API_KEY")
 
-openai.api_key = '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'
+openai.api_key = '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'
 
 
 def save_section_datain_DB(project_name, user_business_idea):
@@ -176,7 +176,8 @@ def brd_create(project_name):
         conn.close()
 
         # Save the document
-        doc_filename = f"newOlobbybrd_response_record_{project_name}.docx"
+        # doc_filename = f"brd_response_for_{project_name}.docx"
+        doc_filename = f"Gen_BRD_Responses.docx"
         doc.save(doc_filename)
 
         print(f"Docx file for project '{project_name}' saved as {doc_filename}")

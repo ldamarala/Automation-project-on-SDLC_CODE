@@ -8,7 +8,7 @@ def save_text_to_docx(text, file_path):
     # Save the document to the specified path
     doc.save(file_path)
 
-def boilerplate_gen(business_idea):
+def boilerplate_gen(business_idea,project_name):
     boilercode_response = openai.ChatCompletion.create(
         model="gpt-4-1106-preview",
         messages=[
@@ -29,7 +29,7 @@ def boilerplate_gen(business_idea):
     boildercode_response = boilercode_response['choices'][0]['message']['content']
     print(boildercode_response)
 
-    save_text_to_docx(boildercode_response, '/home/ldamarala/Desktop/brd_project/boiler_template.docx')
+    save_text_to_docx(boildercode_response, f'/home/ldamarala/Desktop/brd_project/Boiler_Code_Template.docx')
 
     return print("boiler_template_created_successfully")
 

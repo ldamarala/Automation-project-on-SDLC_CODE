@@ -1,0 +1,121 @@
+To create Mermaid.js flowcharts for each use case and embed them in an HTML file, we will first write the Mermaid.js code for each use case and then place them within the HTML structure. Below is the HTML code with embedded Mermaid.js flowcharts for each use case:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Use Case Flowcharts</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+</head>
+<body>
+
+<h2>Task Creation and Assignment Use Case</h2>
+<div class="mermaid">
+graph TD
+    A[Start] --> B[Login with username and password]
+    B -->|Valid Credentials| C[Dashboard]
+    B -->|Invalid Credentials| D[Display 'invalid login']
+    C -->|Default Screen| E[Task Management Section]
+    C -->|Not Default Screen| F[Display 'did not meet expected result']
+    E -->|Visible| G[Click 'Create Task']
+    E -->|Not Visible| H[Display 'Task Management section is not visible']
+    G -->|Form Visible| I[Enter Task Details and Assignees]
+    G -->|Form Not Visible| J[Display 'test case failed as form is not displayed']
+    I -->|Click 'Save'| K[Validate Task Creation]
+    K -->|Success| L[Verify Notification]
+    K -->|Failure| M[Display 'task creation failed']
+    L -->|Notification Received| N[End]
+    L -->|Notification Not Sent| O[Display 'notification not sent']
+</div>
+
+<h2>Workflow System Use Case</h2>
+<div class="mermaid">
+graph TD
+    A[Start] --> B[Login with username and password]
+    B -->|Valid Credentials| C[Dashboard]
+    B -->|Invalid Credentials| D[Display 'invalid login']
+    C -->|Default Screen| E[Workflow System Section]
+    C -->|Not Default Screen| F[Display 'did not meet expected result']
+    E -->|Visible| G[Click 'Create Workflow']
+    E -->|Not Visible| H[Display 'Workflow system section is not visible']
+    G -->|Interface Visible| I[Design Workflow]
+    G -->|Interface Not Visible| J[Display 'test case failed as interface is not displayed']
+    I -->|Click 'Deploy'| K[Validate Workflow Activation]
+    K -->|Active| L[Test Task Progression]
+    K -->|Not Active| M[Display 'workflow deployment failed']
+    L -->|Functioning| N[End]
+    L -->|Not Functioning| O[Display 'workflow is not functioning']
+</div>
+
+<h2>Document Management and Collaboration Use Case</h2>
+<div class="mermaid">
+graph TD
+    A[Start] --> B[Login with username and password]
+    B -->|Valid Credentials| C[Dashboard]
+    B -->|Invalid Credentials| D[Display 'invalid login']
+    C -->|Default Screen| E[Document Management Section]
+    C -->|Not Default Screen| F[Display 'did not meet expected result']
+    E -->|Visible| G[Click 'Upload Document']
+    E -->|Not Visible| H[Display 'Document Management section is not visible']
+    G -->|Interface Visible| I[Select Document to Upload]
+    G -->|Interface Not Visible| J[Display 'test case failed as interface is not displayed']
+    I -->|Click 'Upload'| K[Validate Document Upload]
+    K -->|Success| L[Share with Colleague]
+    K -->|Failure| M[Display 'document upload failed']
+    L -->|Shared| N[Verify Collaboration]
+    L -->|Not Shared| O[Display 'document is not uploaded']
+    N -->|Collaboration Successful| P[End]
+    N -->|Collaboration Failed| Q[Display 'sharing or collaboration failed']
+</div>
+
+<h2>Quick Notes and Reminders Use Case</h2>
+<div class="mermaid">
+graph TD
+    A[Start] --> B[Login with username and password]
+    B -->|Valid Credentials| C[Dashboard]
+    B -->|Invalid Credentials| D[Display 'invalid login']
+    C -->|Default Screen| E[Quick Notes Section]
+    C -->|Not Default Screen| F[Display 'did not meet expected result']
+    E -->|Visible| G[Click 'Create Note']
+    E -->|Not Visible| H[Display 'Quick Notes section is not visible']
+    G -->|Interface Visible| I[Enter Note Content and Set Reminder]
+    G -->|Interface Not Visible| J[Display 'test case failed as interface is not displayed']
+    I -->|Click 'Save'| K[Validate Note and Reminder]
+    K -->|Success| L[Verify Reminder Notification]
+    K -->|Failure| M[Display 'note creation or reminder setting failed']
+    L -->|Notification Received| N[End]
+    L -->|Notification Not Received| O[Display 'reminder notification not received']
+</div>
+
+<h2>Chat and Video Conference Call System Use Case</h2>
+<div class="mermaid">
+graph TD
+    A[Start] --> B[Login with username and password]
+    B -->|Valid Credentials| C[Dashboard]
+    B -->|Invalid Credentials| D[Display 'invalid login']
+    C -->|Default Screen| E[Chat Section]
+    C -->|Not Default Screen| F[Display 'did not meet expected result']
+    E -->|Visible| G[Select Contact]
+    E -->|Not Visible| H[Display 'Chat section is not visible']
+    G -->|Chat Window Visible| I[Send Message]
+    G -->|Chat Window Not Visible| J[Display 'test case failed as chat window is not displayed']
+    I -->|Message Received| K[Return to Dashboard]
+    I -->|Message Not Received| L[Display 'message sending failed']
+    K --> M[Video Conference Call System]
+    M -->|Visible| N[Schedule Video Call]
+    M -->|Not Visible| O[Display 'Video Conference Call System is not visible']
+    N -->|Interface Visible| P[Set Date and Invite Participants]
+    N -->|Interface Not Visible| Q[Display 'test case failed as interface is not displayed']
+    P -->|Start Call| R[Validate Video Call]
+    R -->|Successful| S[End]
+    R -->|Failed| T[Display 'video call system failed']
+</div>
+
+</body>
+</html>
+```
+
+When you render this HTML file in a browser, the Mermaid.js library will automatically convert the text within the `<div class="mermaid">` elements into flowcharts. Each use case is represented as a flowchart, and the flowcharts are displayed one after the other on the page.

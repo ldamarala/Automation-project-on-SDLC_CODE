@@ -14,7 +14,7 @@ from reportlab.pdfgen import canvas
 from IPython.display import HTML
 from docx import Document
 
-openai.api_key = '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'
+openai.api_key = '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'
 
 def db_connect(project_name):
     connection = sqlite3.connect("blueprint.db")
@@ -39,6 +39,7 @@ def db_connect(project_name):
 
 def gen_testcases(project_name,business_idea):
 
+    print("function_called")
     use_cases = db_connect(project_name)
     Structureof_Use_Cases = """
         Test Case ID:
@@ -122,12 +123,17 @@ def gen_testcases(project_name,business_idea):
     print(df)
 
     # Specify the Excel file path
-    excel_file_path = 'test_cases.xlsx'
+    # excel_file_path = 'test_cases.xlsx'
+
+    # filename = f"Gen_TestCases_for_{project_name}.xlsx"
+    filename = f"Test_Cases.xlsx"
+    path = "/home/ldamarala/Desktop/brd_project/"
+    output_testcases_path = os.path.join(path, filename)
 
     # Save the DataFrame to Excel
-    df.to_excel(excel_file_path, index=False)
+    df.to_excel(output_testcases_path, index=False)
 
-    print(f"DataFrame saved to {excel_file_path}")
+    print(f"DataFrame saved to {output_testcases_path}")
 
     # print(type(generated_testcase_responses))
     con = sqlite3.connect("blueprint.db")

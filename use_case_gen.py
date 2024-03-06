@@ -18,7 +18,7 @@ from docx import Document
 # load_dotenv()
 # openai.api_key = os.getenv("OPENAI_API_KEY")
 
-openai.api_key = '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'
+openai.api_key = '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'
 
 def db_connect(project_name):
     connection = sqlite3.connect("blueprint.db")
@@ -71,7 +71,8 @@ def use_cases_gen(project_name,business_idea):
     print(generated_usecase_responses)
 
     # timestamp = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=5, minutes=30))).strftime("%Y%m%d%I%M%p")
-    filename = f"gen_usecase.txt"
+    # filename = f"Gen_UseCase_for_{project_name}.docx"
+    filename = f"Gen_UseCases.txt"
     path = "/home/ldamarala/Desktop/brd_project/"
     file_path = os.path.join(path, filename)
 
@@ -126,8 +127,13 @@ def flowchart(project_name):
     generated_flowchart_responses = flowchart_response['choices'][0]['message']['content']
     print(generated_flowchart_responses)
 
-    output_path = "/home/ldamarala/Desktop/brd_project"
-    output_mermaidjs_path = output_path.rstrip('/') + '/olobby_flowchart_diagram.html'
+    # output_path = "/home/ldamarala/Desktop/brd_project"
+    # output_mermaidjs_path = output_path.rstrip('/') + '/olobby_flowchart_diagram.html'
+
+    # filename = f"Gen_FlowChart_for_{project_name}.html"
+    filename = f"Gen_FlowChart.html"
+    path = "/home/ldamarala/Desktop/brd_project/"
+    output_mermaidjs_path = os.path.join(path, filename)
 
     with open(output_mermaidjs_path, "w") as file:
         file.write(generated_flowchart_responses)
