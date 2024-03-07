@@ -12,13 +12,10 @@ from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 from IPython.display import HTML
 from docx import Document
+from dotenv import load_dotenv, find_dotenv
+_ = load_dotenv(find_dotenv())
 
-# from dotenv import load_dotenv
-
-# load_dotenv()
-# openai.api_key = os.getenv("OPENAI_API_KEY")
-
-openai.api_key = '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'
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def db_connect(project_name):
     connection = sqlite3.connect("blueprint.db")

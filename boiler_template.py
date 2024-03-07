@@ -1,6 +1,10 @@
+import os
 import openai
 from docx import Document
+from dotenv import load_dotenv, find_dotenv
+_ = load_dotenv(find_dotenv())
 
+openai.api_key = os.getenv("OPENAI_API_KEY")
 def save_text_to_docx(text, file_path):
     doc = Document()
     doc.add_paragraph(text)

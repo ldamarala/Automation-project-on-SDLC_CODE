@@ -4,8 +4,10 @@ import re
 import os
 import pandas as pd
 from brd_gen import brd_create
+from dotenv import load_dotenv, find_dotenv
+_ = load_dotenv(find_dotenv())
 
-openai.api_key = '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'
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def db_connect(project_name):
     connection = sqlite3.connect("blueprint.db")
