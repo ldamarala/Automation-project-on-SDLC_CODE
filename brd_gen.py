@@ -1,17 +1,14 @@
-# import os
+import os
 import openai
 import sqlite3
 from docx import Document
 import openai
 import zipfile
 from flask import Flask
-# from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
+_ = load_dotenv(find_dotenv())
 
-# load_dotenv()
-# openai.api_key_path = os.getenv("OPENAI_API_KEY")
-
-openai.api_key = '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'
-
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def save_section_datain_DB(project_name, user_business_idea):
     # Connect to the SQLite database
@@ -19,7 +16,6 @@ def save_section_datain_DB(project_name, user_business_idea):
     conn = sqlite3.connect('blueprint.db')
     c = conn.cursor()
     print('dbconnected')
-
     sections = [
         "Project Overview",
         "Purpose and Scope of this Specification",
@@ -176,7 +172,8 @@ def brd_create(project_name):
         conn.close()
 
         # Save the document
-        doc_filename = f"newOlobbybrd_response_record_{project_name}.docx"
+        # doc_filename = f"brd_response_for_{project_name}.docx"
+        doc_filename = f"Gen_BRD_Responses.docx"
         doc.save(doc_filename)
 
         print(f"Docx file for project '{project_name}' saved as {doc_filename}")

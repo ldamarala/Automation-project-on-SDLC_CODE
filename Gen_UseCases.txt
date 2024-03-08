@@ -1,0 +1,47 @@
+1. **Task Creation and Assignment Use Case:**
+    - Login with username and password. If credentials are valid, allow login; otherwise, display a message saying 'invalid login'.
+    - If login is successful, verify the default screen is the dashboard; otherwise, display a message 'did not meet expected result'.
+    - If the dashboard is visible, navigate to the Task Management section.
+    - If the Task Management section is visible, click on 'Create Task'; otherwise, say 'Task Management section is not visible'.
+    - If the 'Create Task' form is visible, enter task details and assignees; otherwise, display a message 'test case failed as form is not displayed'.
+    - Click on 'Save' and validate if the task is created and assigned successfully; otherwise, display a message 'task creation failed'.
+    - If the task is created, verify that assigned users receive a notification; otherwise, display a message 'notification not sent'.
+
+2. **Workflow System Use Case:**
+    - Login with username and password. If credentials are valid, allow login; otherwise, display a message saying 'invalid login'.
+    - If login is successful, verify the default screen is the dashboard; otherwise, display a message 'did not meet expected result'.
+    - If the dashboard is visible, move to the Workflow system section.
+    - If the Workflow system section is visible, click on 'Create Workflow'; otherwise, say 'Workflow system section is not visible'.
+    - If the 'Create Workflow' interface is visible, design a workflow with tasks and transitions; otherwise, display a message 'test case failed as interface is not displayed'.
+    - Click on 'Deploy' and validate if the workflow is active; otherwise, display a message 'workflow deployment failed'.
+    - If the workflow is active, test a sample task progression through the workflow; otherwise, display a message 'workflow is not functioning'.
+
+3. **Document Management and Collaboration Use Case:**
+    - Login with username and password. If credentials are valid, allow login; otherwise, display a message saying 'invalid login'.
+    - If login is successful, verify the default screen is the dashboard; otherwise, display a message 'did not meet expected result'.
+    - If the dashboard is visible, move to the Document and File Management section.
+    - If the Document and File Management section is visible, click on 'Upload Document'; otherwise, say 'Document Management section is not visible'.
+    - If the 'Upload Document' interface is visible, select a document to upload; otherwise, display a message 'test case failed as interface is not displayed'.
+    - Click on 'Upload' and validate if the document is uploaded successfully; otherwise, display a message 'document upload failed'.
+    - If the document is uploaded, share it with a colleague using the Share File system; otherwise, display a message 'document is not uploaded'.
+    - If the document is shared, verify that the colleague can access and collaborate on the document; otherwise, display a message 'sharing or collaboration failed'.
+
+4. **Quick Notes and Reminders Use Case:**
+    - Login with username and password. If credentials are valid, allow login; otherwise, display a message saying 'invalid login'.
+    - If login is successful, verify the default screen is the dashboard; otherwise, display a message 'did not meet expected result'.
+    - If the dashboard is visible, navigate to the Quick Notes section.
+    - If the Quick Notes section is visible, click on 'Create Note'; otherwise, say 'Quick Notes section is not visible'.
+    - If the 'Create Note' interface is visible, enter the note content and set a reminder; otherwise, display a message 'test case failed as interface is not displayed'.
+    - Click on 'Save' and validate if the note is saved with a reminder; otherwise, display a message 'note creation or reminder setting failed'.
+    - If the note is saved, verify that the reminder notification is received at the set time; otherwise, display a message 'reminder notification not received'.
+
+5. **Chat and Video Conference Call System Use Case:**
+    - Login with username and password. If credentials are valid, allow login; otherwise, display a message saying 'invalid login'.
+    - If login is successful, verify the default screen is the dashboard; otherwise, display a message 'did not meet expected result'.
+    - If the dashboard is visible, move to the Chat section.
+    - If the Chat section is visible, select a contact to initiate a chat; otherwise, say 'Chat section is not visible'.
+    - If the chat window is visible, send a message and verify it is received; otherwise, display a message 'test case failed as chat window is not displayed'.
+    - Return to the dashboard and navigate to the Video Conference Call System.
+    - If the Video Conference Call System is visible, schedule a new video call; otherwise, say 'Video Conference Call System is not visible'.
+    - If the video call scheduling interface is visible, set the date and time, and invite participants; otherwise, display a message 'test case failed as interface is not displayed'.
+    - Start the video call at the scheduled time and validate if all participants can join and communicate effectively; otherwise, display a message 'video call system failed'.

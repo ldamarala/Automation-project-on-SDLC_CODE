@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 30px 0;
+            color: #007bff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 auto; /* Center the table */
+        }
+
+        th, td {
+            padding: 15px;
+            border-bottom: 1px solid #dee2e6;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #555;
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Projects</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Project Name</th>
+                <th>Business Requirements Document</th>
+                <th>Use Cases</th>
+                <th>User Scripts</th>
+                <th>Test Scripts</th>
+                <th>Boiler Code Tempelete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- No data in the table -->
+            {% for option in options %}
+            <tr>
+            <td><a href="{{ url_for('project_details', project_id=option[0]) }}">{{ option[1] }}</a></td>
+            <td>{{ option[2] }}</td>
+            <td>{{ option[3] }}</td>
+            <td>{{ option[4] }}</td>
+            <td>{{ option[5] }}</td>
+            <td>{{ option[6] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
+

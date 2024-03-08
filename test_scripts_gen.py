@@ -13,8 +13,10 @@ from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 from IPython.display import HTML
 from docx import Document
+from dotenv import load_dotenv, find_dotenv
+_ = load_dotenv(find_dotenv())
 
-openai.api_key = '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'
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def db_connect(project_name):
     connection = sqlite3.connect("blueprint.db")
@@ -63,7 +65,10 @@ def test_scripts_gen(project_name, business_idea):
     # Determine the file extension based on the selected language
     file_extension = ".java" if automation_language.lower() == "java" else ".py"
     # Save the generated code to a file
-    output_code_path = "/home/ldamarala/Desktop/brd_project/selenium"
+    # output_code_path = "/home/ldamarala/Desktop/brd_project/selenium"
+    
+    output_code_path = f"/home/ldamarala/Desktop/brd_project/Selenium"
+
     file_name = output_code_path + file_extension
     with open(file_name, "w") as file:
         file.write(selenium_code_response)

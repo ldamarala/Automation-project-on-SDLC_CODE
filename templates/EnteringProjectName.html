@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #007bff;
+            font-size: 24px;
+        }
+
+        .project-name-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+            margin-left: 10%;
+        }
+
+        .project-name {
+            color: #007bff;
+            margin-left: 5px;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 20px;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .content {
+            flex-grow: 1;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #dee2e6;
+            text-align: left;
+            vertical-align: middle;
+            /* Align content vertically */
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #555;
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .dropdown-content {
+            display: none;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            right: 0;
+            margin-top: 10px;
+            width: 120px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f9f9f9;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .action-btn {
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            margin-right: 5px;
+            border: 1px solid black;
+            /* Ensure consistent border width */
+            vertical-align: middle;
+            /* Align buttons vertically */
+        }
+
+        .action-btn:hover {
+            background-color: #cbc5ca;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <label for="">Project name</label> -->
+    <h1>Projects</h1>
+    <label class="project-name-label">Project Name: <span class="project-name">{{ project_details[1] }}</span></label>
+    <div class="container">
+
+        <div class="content">
+            <table id="projectTable">
+                <thead>
+                    <tr>
+                        <th>Modules</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Business Requirements Document</td>
+                        <td>{{ project_details[2] }}</td>
+                        <td class="dropdown">
+                            <button class="action-btn" onclick="editFile1()"><i class="fas fa-edit"></i> Edit</button>
+                            <!-- <button class="action-btn download-btn" data-module="brd"><i class="fas fa-download"></i> Download</button> -->
+                            <button class="action-btn" type="button" onclick="downloadFile()"><i class="fas fa-download"></i>Download</button> 
+                            <!-- <button class="action-btn" ><i class="fas fa-download"></i> Download</button> -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Use Cases</td>
+                        <td>{{ project_details[3] }}</td>
+                        <td class="dropdown">
+                            <button class="action-btn" onclick="editFile2()"><i class="fas fa-edit"></i> Edit</button>
+                            <button class="action-btn" type="button" onclick="downloadFile1()"><i class="fas fa-download"></i>Download</button>
+                            <!-- <button class="action-btn download-btn" data-module="use_case"><i class="fas fa-download"></i> Download</button> -->
+                            <!-- <button class="action-btn"><i class="fas fa-download"></i> Download</button> -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Test Cases</td>
+                        <td>{{ project_details[4] }}</td>
+                        <td class="dropdown">
+                            <button class="action-btn" onclick="editFile3()"><i class="fas fa-edit"></i> Edit</button>
+                            <button class="action-btn" type="button" onclick="downloadFile2()"><i class="fas fa-download"></i>Download</button>
+                            <!-- <button class="action-btn download-btn" data-module="test_script"><i class="fas fa-download"></i> Download</button> -->
+                            <!-- <button class="action-btn"><i class="fas fa-download"></i> Download</button> -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Test Scripts</td>
+                        <td>{{ project_details[5] }}</td>
+                        <td class="dropdown">
+                            <button class="action-btn" onclick="editFile4()"><i class="fas fa-edit"></i> Edit</button>
+                            <button class="action-btn" type="button" onclick="downloadFile3()"><i class="fas fa-download"></i>Download</button>
+                            <!-- <button class="action-btn download-btn" data-module="test_case"><i class="fas fa-download"></i> Download</button> -->
+                            <!-- <button class="action-btn"><i class="fas fa-download"></i> Download</button> -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Boiler Code Template</td>
+                        <td>{{ project_details[6] }}</td>
+                        <td class="dropdown">
+                            <button class="action-btn" onclick="editFile5()"><i class="fas fa-edit"></i> Edit</button>
+                            <!-- <button class="action-btn download-btn" data-module="boiler-template"><i class="fas fa-download"></i> Download</button> -->
+                            <button class="action-btn" type="button" onclick="downloadFile4()"><i class="fas fa-download"></i>Download</button>
+                            <!-- <button class="action-btn" onclick="window.location.href='/download/brd/{{ project_details[1] }}'"><i class="fas fa-download"></i> Download</button> -->
+                            <!-- <button class="action-btn"><i class="fas fa-download"></i> Download</button> -->
+                        </td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!-- <script>
+        // Update the project heading dynamically
+        var projectName = "Swift UI"; // Replace this with your dynamic project name
+        document.getElementById("projectHeading").textContent = projectName;
+    </script> -->
+    <script>
+        function downloadFile() {
+            // Make a request to the Flask route that generates and serves the file
+            window.location.href = '/download';
+        }
+        function downloadFile1() {
+            // Make a request to the Flask route that generates and serves the file
+            window.location.href = '/download1';
+        }
+        function downloadFile2() {
+            // Make a request to the Flask route that generates and serves the file
+            window.location.href = '/download2';
+        }
+        function downloadFile3() {
+            // Make a request to the Flask route that generates and serves the file
+            window.location.href = '/download3';
+        }
+        function downloadFile4() {
+            // Make a request to the Flask route that generates and serves the file
+            window.location.href = '/download4';
+        }
+
+        function editFile1(){
+            window.location.href = '/editfile1';
+        }
+        function editFile2(){
+            window.location.href = '/editfile2';
+        }
+        function editFile3(){
+            window.location.href = '/editfile3';
+        }
+        function editFile4(){
+            window.location.href = '/editfile4';
+        }
+        function editFile5(){
+            window.location.href = '/editfile5';
+        }
+    </script>
+</body>
+
+</html>

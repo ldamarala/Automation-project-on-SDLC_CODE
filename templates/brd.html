@@ -3,120 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Entry Form</title>
+    <title>Blueprint-AI</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+		body {
+		    font-family: Arial, sans-serif;
+		    background-color: #f0f0f0;
+		    margin: 0;
+		    padding: 0;
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    min-height: 100vh;
+		}
 
-        .container {
-            position: relative;
-            width: 70%;
-            max-width: 600px;
-            background-color: #fff;
-            border-radius: 20px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-            overflow: hidden;
-        }
+		.container {
+		    position: relative;
+		    width: 70%;
+		    max-width: 600px;
+		    background-color: #fff;
+		    border-radius: 20px;
+		    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+		    padding: 40px;
+		    overflow: hidden;
+		}
 
-        .logo-section {
-            text-align: center;
-            margin-bottom: 20px;
-            position: relative;
-        }
+		.logo-section {
+		    text-align: center;
+		    margin-bottom: 20px;
+		    position: relative;
+		}
 
-        .logo {
-            max-width: 120px;
-            height: auto;
-            border-radius: 10px;
-            border: 3px solid #007bff;
-            padding: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+		.logo {
+		    max-width: 120px;
+		    height: auto;
+		    border-radius: 10px;
+		    border: 3px solid #007bff;
+		    padding: 10px;
+		    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
 
-        .form-group {
-            margin-bottom: 20px;
-        }
+		.form-group {
+		    margin-bottom: 20px;
+		}
 
-        label {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            display: block;
-            color: #333;
-        }
+		label {
+		    font-size: 18px;
+		    font-weight: bold;
+		    margin-bottom: 10px;
+		    display: block;
+		    color: #333;
+		}
 
-        textarea, input[type="text"], input[type="file"] {
-            width: calc(100% - 20px);
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 16px;
-            color: #333;
-            transition: border-color 0.3s ease;
-            margin-bottom: 10px;
-        }
+		textarea,
+		input[type="text"],
+		input[type="file"] {
+		    width: calc(100% - 20px);
+		    padding: 12px;
+		    border: 1px solid #ccc;
+		    border-radius: 8px;
+		    font-size: 16px;
+		    color: #333;
+		    transition: border-color 0.3s ease;
+		    margin-bottom: 10px;
+		}
 
-        button, input[type="submit"] {
-            width: calc(50% - 20px);
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-            margin-bottom: 10px;
-        }
+		button {
+		    width: calc(50% - 20px);
+		    padding: 10px;
+		    background-color: #007bff;
+		    color: #fff;
+		    border: none;
+		    border-radius: 8px;
+		    cursor: pointer;
+		    font-size: 16px;
+		    transition: background-color 0.3s ease;
+		    margin-bottom: 10px;
+		}
 
-        button:hover, input[type="submit"]:hover {
-            background-color: #007bff;
-        }
+		button:hover {
+		    background-color: #0056b3;
+		}
 
-        /* Style for checkboxes */
-        .checkbox-container {
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
+		#selectOption {
+		    height: 40px;
+		    padding-inline: 5px;
+		    border-radius: 15px
+		}
 
-        .checkbox-item {
-            flex: 0 0 45%;
-            margin-right: 20px;
-            margin-bottom: 10px;
-        }
+		/* Style for dropdown */
+		.select-container {
+		    margin-bottom: 20px;
+		    position: relative;
+		}
 
-        .checkbox-item label {
-            display: inline-block;
-            margin-bottom: 5px;
-        }
+		.dropdown {
+		    width: calc(100% - 20px);
+		    padding: 12px;
+		    border: 1px solid #ccc;
+		    border-radius: 8px;
+		    font-size: 16px;
+		    color: #333;
+		    transition: border-color 0.3s ease;
+		    cursor: pointer;
+		    position: relative;
+		}
 
-        /* Style for download button */
-        .download-button {
-            background-color: #28a745;
-        }
+		.dropdown:hover {
+		    border-color: #007bff;
+		}
 
-        .download-button:hover {
-            background-color: #218838;
-        }
-    </style>
+		.info-icon {
+		    position: absolute;
+		    top: 50%;
+		    right: 10px;
+		    transform: translateY(-50%);
+		    cursor: pointer;
+		}
+
+		.info-text {
+		    display: none;
+		    position: absolute;
+		    top: calc(100% + 5px);
+		    left: 0;
+		    width: calc(100% - 20px);
+		    padding: 10px;
+		    background-color: #f0f0f0;
+		    border: 1px solid #ccc;
+		    border-radius: 8px;
+		    font-size: 14px;
+		    color: #333;
+		    z-index: 1;
+		}
+
+		.dropdown:hover .info-text {
+		    display: block;
+		}
+	    </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="logo-section">
+    <!-- <div class="logo-section">
         <img src="/home/dpatil/Downloads/logo.jpeg" alt="Logo" class="logo">
-    </div>
-
+    </div> -->
+    <div class="logo-section">
+        <h2>BluePrint AI</h2>
+  </div>
     <form action="/generate_files" method="post" id="textEntryForm" enctype="multipart/form-data">
         <div class="form-group">
             <label for="projectNameInput">Enter Project Name:</label>
@@ -135,37 +167,21 @@
         </div>
        
         <div class="form-group">
-            <label>Select an Option:</label>
-            <div class="checkbox-container">
-                <div class="checkbox-item">
-                    <input type="checkbox" id="option1" name="selectedOptions" value="Brd_Generator">
-                    <label for="option1">Brd_Generator</label>
-                </div>
-               
-                <div class="checkbox-item">
-                    <input type="checkbox" id="option2" name="selectedOptions" value="Use-cases">
-                    <label for="option2">Use-cases</label>
-                </div>
-               
-                <div class="checkbox-item">
-                    <input type="checkbox" id="option3" name="selectedOptions" value="test-cases">
-                    <label for="option3">test-cases</label>
-                </div>
-               
-                <div class="checkbox-item">
-                    <input type="checkbox" id="option4" name="selectedOptions" value="test-scripts">
-                    <label for="option4">test-scripts</label>
-                </div>
-               
-                <div class="checkbox-item">
-                    <input type="checkbox" id="option5" name="selectedOptions" value="Boiler_templete">
-                    <label for="option5">Boiler_templete</label>
-                </div>
-            </div>
+            <label for="selectOption">Select an Option:</label>
+            <select id="selectOption" name="selectedOption" onchange="removePlaceholder()">
+                <!-- <option value="" selected disabled id="placeholderOption">Please select &#9660;</option> -->
+                <option value="Brd-generator" title="Generates BRD">BRD (Business
+                    Requirement Document)</option>
+                <!-- <option value="Brd-generator">Business Requirement Document</option> -->
+                <option value="Use-cases" title="Generates BRD+User-Stories">User-Stories</option>
+                <option value="test-cases" title="Generates BRD+User-Stories+Test-Cases">Test-Cases</option>
+                <option value="test-scripts" title="Generates BRD+User-Stories+Test-Cases+Test-Scripts">Test-Scripts</option>
+                <option value="Boiler-templete" title="Generates BRD+User-Stories+Test-Cases+Use-Cases+Boiler-code-template">Boiler Code-Templete</option>
+            </select>
         </div>
-       
+        
         <button type="submit">Generate</button>
-        <button class="download-button" type="button" onclick="downloadFile()">Download</button>
+        <!-- <button class="download-button" type="button" onclick="downloadFile()">Download</button> -->
     </form>
 </div>
 <script>
@@ -181,10 +197,10 @@
         document.getElementById('fileSelected').innerHTML = '<span>File Selected:</span> ' + fileName;
     });
 
-    function downloadFile() {
-            // Make a request to the Flask route that generates and serves the file
-            window.location.href = '/download';
-        }
+    // function downloadFile() {
+    //         // Make a request to the Flask route that generates and serves the file
+    //         window.location.href = '/download';
+    //     }
 </script>
 </body>
 </html>
